@@ -1,0 +1,47 @@
+name: RealmChat
+version: 1.0.0
+description: A chat plugin implementing the ChatManager API
+
+author: Zinno
+website: github.com/z3ht
+
+main: me.zinno.realmchat.App
+database: false
+load: STARTUP
+
+commands:
+  realmchat:
+    description: The base for all realm chat commmands
+    usage: Syntax error! Use /realmchat help for a list of commands
+
+permissions:
+  realmchat.*:
+    description: Access to all Ream Chat permissions
+    children:
+      realmchat.chat: true
+      realmchat.add: true
+      realmchat.del: true
+      realmchat.help: true
+      realmchat.change: true
+    default: false
+  realmchat.chat:
+    description: The most basic Realm Chat permission
+    default: true
+  realmchat.edit:
+    description: Add and delete Realm Chat channels
+    children:
+      realmchat.add: true
+      realmchat.del: true
+    default: false
+  realmchat.add:
+    description: Add Realm Chat channels
+    default: false
+  realmchat.del:
+    description: Delete Realm Chat channels
+    default: false
+  realmchat.help:
+    description: List of available Realm Chat commands
+    default: true
+  realmchat.change:
+    description: Switch Realm Chat channels
+    default: true
